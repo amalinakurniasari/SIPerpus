@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class TransactionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $transactions = Transaction::all();

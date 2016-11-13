@@ -14,6 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', [
+        'as' => 'dashboard',
+        'uses' => 'DashboardController@index']);
+
+Route::get('/register', [
+        'as' => 'register',
+        'uses' => 'RegisterController@index']);
+
+Route::post('/signup', [
+        'as' => 'signup',
+        'uses' => 'UserController@postSignUp']);
+
+Route::post('/signin', [
+        'as' => 'signin',
+        'uses' => 'UserController@postSignIn']);
+
 Route::get('/books', ['as' => 'books.index', 'uses' => 'BookController@index']);
 Route::get('/books/create', ['as' => 'books.create', 'uses' => 'BookController@create']);
 Route::post('/books/store', ['as' => 'books.store', 'uses' => 'BookController@store']);
@@ -37,6 +54,7 @@ Route::post('/transactions/store', ['as' => 'transactions.store', 'uses' => 'Tra
 Route::get('/transactions/edit/{id}', ['as' => 'transactions.edit', 'uses' => 'TransactionController@edit']);
 Route::patch('/transactions/update/{id}', ['as' => 'transactions.update', 'uses' => 'TransactionController@update']);
 Route::get('/transactions/delete/{id}', ['as' => 'transactions.delete', 'uses' => 'TransactionController@delete']);
+
 
 /*
 |--------------------------------------------------------------------------

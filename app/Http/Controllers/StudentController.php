@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $filter = Request::input('filter');
